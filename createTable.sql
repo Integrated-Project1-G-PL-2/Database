@@ -1,0 +1,16 @@
+create database integreated;
+use integreated;
+CREATE TABLE `tasks` (
+    `taskId` INT NOT NULL AUTO_INCREMENT,
+    `taskTitle` VARCHAR(100) NOT NULL,
+    `taskDescription` VARCHAR(500) DEFAULT NULL,
+    `taskAssignees` VARCHAR(30) DEFAULT NULL,
+    `taskStatus` ENUM('NO_STATUS', 'TO_DO', 'DOING', 'DONE') NOT NULL DEFAULT 'NO_STATUS',
+    `createdOn` DATETIME DEFAULT CURRENT_TIMESTAMP,
+    `updatedOn` DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (`taskId`),
+    UNIQUE KEY `taskId_UNIQUE` (`taskId`)
+)  ENGINE=INNODB DEFAULT CHARSET=UTF8MB4 COLLATE = UTF8MB4_0900_AI_CI;
+
+SET GLOBAL time_zone = '+00:00';
+
